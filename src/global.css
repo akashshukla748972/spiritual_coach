@@ -1,0 +1,198 @@
+/** @import must precede all other statements */
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap");
+
+body, .font-sans, button, input, select, textarea, a {
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
+}
+
+h1, h2, h3, h4, h5, h6, .font-serif {
+  font-family: 'Cormorant Garamond', serif !important;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /**
+   * Tailwind CSS theme
+   * tailwind.config.ts expects the following color variables to be expressed as HSL values.
+   * A different format will require also updating the theme in tailwind.config.ts.
+  */
+  :root {
+    --background: 276 50% 3.5%;
+    --foreground: 30 20% 95%;
+
+    --card: 276 40% 4.5%;
+    --card-foreground: 30 20% 95%;
+
+    --popover: 276 50% 3.5%;
+    --popover-foreground: 30 20% 95%;
+
+    --primary: 40 50% 75%;
+    --primary-foreground: 276 50% 3.5%;
+
+    --secondary: 276 30% 8%;
+    --secondary-foreground: 30 20% 95%;
+
+    --muted: 276 20% 10%;
+    --muted-foreground: 30 10% 70%;
+
+    --accent: 40 40% 12%;
+    --accent-foreground: 40 50% 75%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 40 25% 12%;
+    --input: 40 25% 12%;
+    --ring: 40 50% 75%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 276 40% 3%;
+    --sidebar-foreground: 30 10% 80%;
+    --sidebar-primary: 40 50% 75%;
+    --sidebar-primary-foreground: 276 50% 3.5%;
+    --sidebar-accent: 276 30% 8%;
+    --sidebar-accent-foreground: 30 20% 95%;
+    --sidebar-border: 40 25% 10%;
+    --sidebar-ring: 40 50% 75%;
+  }
+
+  .dark {
+    --background: 276 50% 3.5%;
+    --foreground: 30 20% 95%;
+
+    --card: 276 40% 4.5%;
+    --card-foreground: 30 20% 95%;
+
+    --popover: 276 50% 3.5%;
+    --popover-foreground: 30 20% 95%;
+
+    --primary: 40 50% 75%;
+    --primary-foreground: 276 50% 3.5%;
+
+    --secondary: 276 30% 8%;
+    --secondary-foreground: 30 20% 95%;
+
+    --muted: 276 20% 10%;
+    --muted-foreground: 30 10% 70%;
+
+    --accent: 40 40% 12%;
+    --accent-foreground: 40 50% 75%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 40 25% 12%;
+    --input: 40 25% 12%;
+    --ring: 40 50% 75%;
+
+    --sidebar-background: 276 40% 3%;
+    --sidebar-foreground: 30 10% 80%;
+    --sidebar-primary: 40 50% 75%;
+    --sidebar-primary-foreground: 276 50% 3.5%;
+    --sidebar-accent: 276 30% 8%;
+    --sidebar-accent-foreground: 30 20% 95%;
+    --sidebar-border: 40 25% 10%;
+    --sidebar-ring: 40 50% 75%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  :where(p, span, li, h1, h2, h3, h4, h5, h6, a, button, label, td, th) {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+  pre,
+  code {
+    overflow-x: auto;
+    white-space: pre;
+  }
+}
+
+/* Custom premium utilities */
+.stars-bg {
+  background-image: 
+    radial-gradient(1px 1px at 25px 30px, rgba(255, 255, 255, 0.75) 100%, transparent),
+    radial-gradient(1.5px 1.5px at 75px 120px, rgba(255, 255, 255, 0.9) 100%, transparent),
+    radial-gradient(1px 1px at 150px 80px, rgba(255, 255, 255, 0.65) 100%, transparent),
+    radial-gradient(2px 2px at 220px 180px, rgba(255, 253, 245, 0.95) 100%, transparent),
+    radial-gradient(1.5px 1.5px at 290px 45px, rgba(255, 255, 255, 0.8) 100%, transparent),
+    radial-gradient(1px 1px at 320px 240px, rgba(255, 255, 255, 0.6) 100%, transparent),
+    radial-gradient(2px 2px at 380px 150px, rgba(255, 255, 255, 0.9) 100%, transparent),
+    radial-gradient(1.5px 1.5px at 450px 95px, rgba(255, 253, 240, 0.8) 100%, transparent);
+  background-size: 500px 500px;
+}
+
+.cosmic-glass {
+  background: rgba(13, 7, 18, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(179, 146, 85, 0.18);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
+}
+
+.cosmic-glass-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.cosmic-glass-hover:hover {
+  background: rgba(22, 12, 30, 0.85);
+  border-color: rgba(179, 146, 85, 0.38);
+  box-shadow: 0 20px 40px -10px rgba(179, 146, 85, 0.2);
+  transform: translateY(-6px);
+}
+
+.text-gold-gradient {
+  background: linear-gradient(135deg, #FFEAB5 0%, #DFD3BD 45%, #B39255 75%, #8A6D35 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.bg-gold-gradient {
+  background: linear-gradient(135deg, #FFEAB5 0%, #B39255 50%, #8A6D35 100%);
+}
+
+.glow-gold {
+  box-shadow: 0 0 15px rgba(179, 146, 85, 0.25);
+}
+
+.glow-gold-hover:hover {
+  box-shadow: 0 0 25px rgba(179, 146, 85, 0.45);
+}
+
+/* Lenis smooth scroll adjustments */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
