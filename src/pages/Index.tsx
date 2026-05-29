@@ -74,6 +74,18 @@ export default function Index() {
     window.open(url, "_blank", "noopener,noreferrer");
   };
 
+  const openWhatsApp = () => {
+    const whatsappPhone = BRAND_CONFIG.phone.replace(/\D/g, "");
+    const whatsappText = encodeURIComponent(
+      "Hello Rekha Ji, I came across the book *Awaken Heal Relate* and I would like to know more about it.",
+    );
+    window.open(
+      `https://api.whatsapp.com/send?phone=${whatsappPhone}&text=${whatsappText}`,
+      "_blank",
+      "noopener,noreferrer",
+    );
+  };
+
   useGSAP(() => {
     // Initialize Lenis smooth scroll
     const lenis = new Lenis({
@@ -99,59 +111,59 @@ export default function Index() {
     // Cohesive entrance Timeline
     const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
 
-    tl.fromTo(".animate-header", 
+    tl.fromTo(".animate-header",
       { y: -30, opacity: 0 },
       { y: 0, opacity: 1, duration: 0.6 }
     )
-    .fromTo(".animate-nav-logo",
-      { x: -20, opacity: 0 },
-      { x: 0, opacity: 1, duration: 0.5 },
-      "-=0.3"
-    )
-    .fromTo(".animate-nav-link",
-      { y: -10, opacity: 0 },
-      { y: 0, opacity: 1, stagger: 0.08, duration: 0.4 },
-      "-=0.3"
-    )
-    .fromTo(".animate-nav-button",
-      { scale: 0.9, opacity: 0 },
-      { scale: 1, opacity: 1, stagger: 0.1, duration: 0.4 },
-      "-=0.3"
-    )
-    .fromTo(".animate-hero-badge", 
-      { scale: 0.8, opacity: 0 },
-      { scale: 1, opacity: 1, duration: 0.5, ease: "back.out(1.7)" },
-      "-=0.2"
-    )
-    .fromTo(".animate-hero-title", 
-      { y: 30, opacity: 0 },
-      { y: 0, opacity: 1, duration: 0.6 },
-      "-=0.4"
-    )
-    .fromTo(".animate-hero-desc", 
-      { y: 20, opacity: 0 },
-      { y: 0, opacity: 1, duration: 0.6 },
-      "-=0.4"
-    )
-    .fromTo(".animate-hero-cta", 
-      { y: 15, opacity: 0 },
-      { y: 0, opacity: 1, duration: 0.6 },
-      "-=0.4"
-    )
-    .fromTo(".animate-hero-stats", 
-      { y: 25, opacity: 0, scale: 0.95 },
-      { y: 0, opacity: 1, scale: 1, stagger: 0.1, duration: 0.6 },
-      "-=0.4"
-    )
-    .fromTo(".animate-hero-preview", 
-      { scale: 0.95, rotationY: 8, opacity: 0 },
-      { scale: 1, rotationY: 0, opacity: 1, duration: 1 },
-      "-=0.9"
-    );
+      .fromTo(".animate-nav-logo",
+        { x: -20, opacity: 0 },
+        { x: 0, opacity: 1, duration: 0.5 },
+        "-=0.3"
+      )
+      .fromTo(".animate-nav-link",
+        { y: -10, opacity: 0 },
+        { y: 0, opacity: 1, stagger: 0.08, duration: 0.4 },
+        "-=0.3"
+      )
+      .fromTo(".animate-nav-button",
+        { scale: 0.9, opacity: 0 },
+        { scale: 1, opacity: 1, stagger: 0.1, duration: 0.4 },
+        "-=0.3"
+      )
+      .fromTo(".animate-hero-badge",
+        { scale: 0.8, opacity: 0 },
+        { scale: 1, opacity: 1, duration: 0.5, ease: "back.out(1.7)" },
+        "-=0.2"
+      )
+      .fromTo(".animate-hero-title",
+        { y: 30, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.6 },
+        "-=0.4"
+      )
+      .fromTo(".animate-hero-desc",
+        { y: 20, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.6 },
+        "-=0.4"
+      )
+      .fromTo(".animate-hero-cta",
+        { y: 15, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.6 },
+        "-=0.4"
+      )
+      .fromTo(".animate-hero-stats",
+        { y: 25, opacity: 0, scale: 0.95 },
+        { y: 0, opacity: 1, scale: 1, stagger: 0.1, duration: 0.6 },
+        "-=0.4"
+      )
+      .fromTo(".animate-hero-preview",
+        { scale: 0.95, rotationY: 8, opacity: 0 },
+        { scale: 1, rotationY: 0, opacity: 1, duration: 1 },
+        "-=0.9"
+      );
 
     // ScrollTrigger animations
     // About Section reveal
-    gsap.fromTo(".animate-about-title", 
+    gsap.fromTo(".animate-about-title",
       { y: 30, opacity: 0 },
       {
         scrollTrigger: {
@@ -165,7 +177,7 @@ export default function Index() {
       }
     );
 
-    gsap.fromTo(".animate-about-text", 
+    gsap.fromTo(".animate-about-text",
       { y: 30, opacity: 0 },
       {
         scrollTrigger: {
@@ -179,7 +191,7 @@ export default function Index() {
       }
     );
 
-    gsap.fromTo(".animate-about-card", 
+    gsap.fromTo(".animate-about-card",
       { y: 40, opacity: 0 },
       {
         scrollTrigger: {
@@ -194,7 +206,7 @@ export default function Index() {
       }
     );
 
-    gsap.fromTo(".animate-about-image", 
+    gsap.fromTo(".animate-about-image",
       { scale: 0.95, opacity: 0 },
       {
         scrollTrigger: {
@@ -209,7 +221,7 @@ export default function Index() {
     );
 
     // Mastery Programs section
-    gsap.fromTo(".animate-programs-title", 
+    gsap.fromTo(".animate-programs-title",
       { y: 30, opacity: 0 },
       {
         scrollTrigger: {
@@ -223,7 +235,7 @@ export default function Index() {
       }
     );
 
-    gsap.fromTo(".animate-program-card", 
+    gsap.fromTo(".animate-program-card",
       { y: 50, opacity: 0 },
       {
         scrollTrigger: {
@@ -239,7 +251,7 @@ export default function Index() {
     );
 
     // Courses section
-    gsap.fromTo(".animate-courses-title", 
+    gsap.fromTo(".animate-courses-title",
       { y: 30, opacity: 0 },
       {
         scrollTrigger: {
@@ -253,7 +265,7 @@ export default function Index() {
       }
     );
 
-    gsap.fromTo(".animate-course-card", 
+    gsap.fromTo(".animate-course-card",
       { y: 50, opacity: 0 },
       {
         scrollTrigger: {
@@ -269,7 +281,7 @@ export default function Index() {
     );
 
     // Why Choose Us features
-    gsap.fromTo(".animate-why-title", 
+    gsap.fromTo(".animate-why-title",
       { y: 30, opacity: 0 },
       {
         scrollTrigger: {
@@ -283,7 +295,7 @@ export default function Index() {
       }
     );
 
-    gsap.fromTo(".animate-why-card", 
+    gsap.fromTo(".animate-why-card",
       { y: 40, opacity: 0 },
       {
         scrollTrigger: {
@@ -299,7 +311,7 @@ export default function Index() {
     );
 
     // Testimonials
-    gsap.fromTo(".animate-testimonials-title", 
+    gsap.fromTo(".animate-testimonials-title",
       { y: 30, opacity: 0 },
       {
         scrollTrigger: {
@@ -313,7 +325,7 @@ export default function Index() {
       }
     );
 
-    gsap.fromTo(".animate-testimonial-card", 
+    gsap.fromTo(".animate-testimonial-card",
       { y: 40, opacity: 0 },
       {
         scrollTrigger: {
@@ -329,7 +341,7 @@ export default function Index() {
     );
 
     // CTA Section
-    gsap.fromTo(".animate-cta-box", 
+    gsap.fromTo(".animate-cta-box",
       { scale: 0.95, opacity: 0 },
       {
         scrollTrigger: {
@@ -706,10 +718,10 @@ export default function Index() {
               >
                 <div className="relative overflow-hidden h-48 bg-slate-950">
                   <img
-                     src={course.image}
-                     alt={course.title}
-                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                     loading="lazy"
+                    src={course.image}
+                    alt={course.title}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    loading="lazy"
                   />
                   <div className="absolute top-4 right-4 bg-[#0d0714]/90 backdrop-blur-md text-amber-300 text-xs font-bold px-3 py-1.5 rounded-full border border-amber-500/20 flex items-center gap-1 shadow-md">
                     <Clock className="h-3.5 w-3.5" />
@@ -1029,10 +1041,10 @@ export default function Index() {
                 Have questions about our programs, personal mentorship, or book orders? Click below to send a message directly to our desk.
               </p>
               <button
-                onClick={() => openForm(GOOGLE_FORM_LINKS.contact)}
-                className="w-full py-3 bg-gradient-to-r from-[#FFEAB5] via-[#B39255] to-[#8A6D35] text-slate-950 font-black rounded-full text-xs flex items-center justify-center gap-1.5 hover:shadow-lg transition-all hover:scale-[1.02] duration-300 glow-gold"
+                onClick={openWhatsApp}
+                className="w-full py-3 bg-gradient-to-r from-[#FFEAB5] via-[#B39255] to-[#8A6D35] text-slate-950 font-black rounded-full text-xs flex items-center justify-center gap-2 hover:shadow-[0_0_15px_rgba(179,146,85,0.3)] transition-all hover:scale-[1.02] duration-300 glow-gold"
               >
-                <Send className="h-3.5 w-3.5 text-slate-950" /> Connect with Rekha
+                <Send className="h-4 w-4" /> Contact with Rekha
               </button>
             </div>
           </div>
